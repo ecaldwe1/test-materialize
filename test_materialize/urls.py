@@ -27,5 +27,5 @@ urlpatterns = [
         name='logout',
         kwargs={'next_page': '/login'}
     ),
-    url(r'^', include('skillsmatrix.urls')),
+    url(r'^', include('skills_site.urls')),
 ]

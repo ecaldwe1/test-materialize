@@ -1,5 +1,5 @@
 from django.views.generic import *
-from skillsmatrix.models import *
+from skills_site.models import *
 
 #View file for the homepage
 class Home(TemplateView):

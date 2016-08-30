@@ -1,6 +1,6 @@
 # View file for developer pages
 from django.views.generic import *
-from skillsmatrix.models import Developer, DeveloperSkill, ExtraCredit
+from skills_site.models import Developer, DeveloperSkill, ExtraCredit
 from django.core.urlresolvers import reverse
 
 # ListView that lists all of the developers by using the developer_list.html template
