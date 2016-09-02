@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^developer/(?P<pk>\d+)/update/$', DeveloperUpdate.as_view(), name="developer_update"),
     url(r'^extracredit/send/$', ExtraCreditCreateView.as_view(), name="send_extra_credit"),
     url(r'^skills/$', SkillsList.as_view(), name="skills_list"),
+    url(r'^skills/(?P<skill_id>\d+)/$', DeveloperListBySkill.as_view(), name='developer_list_by_skill'),
 ]
