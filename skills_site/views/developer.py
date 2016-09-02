@@ -7,11 +7,14 @@ from django.core.urlresolvers import reverse
 class DeveloperList(ListView):
 
     model = Developer
-    template_name = 'developer_list.html'
+    template_name = 'developer_list_materialize.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(DeveloperList, self).get_context_data(**kwargs)
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super(PeopleList, self).get_context_data(**kwargs)
+    #     return context
+    def get_queryset(self):
+        q = super(DeveloperList, self).get_queryset()
+        return q.order_by('user__last_name')
 
 # ListView that inherits from DeveloperList but uses a url parameter to only show the list of developers that have the manager passed in on the url
 class DeveloperListByManager(DeveloperList):
@@ -23,7 +26,7 @@ class DeveloperListByManager(DeveloperList):
 # DetailView of a single developer
 class DeveloperDetail(DetailView):
     model = Developer
-    template_name = 'developer_detail.html'
+    template_name = 'developer_detail_materialize.html'
 
     def get_context_data(self, **kwargs):
         context = super(DeveloperDetail, self).get_context_data(**kwargs)
@@ -56,7 +59,7 @@ class DeveloperUpdate(UpdateView):
 # CreateView that allows the logged in user to send extra credit to another developer
 class ExtraCreditCreateView(CreateView):
     model = ExtraCredit
-    template_name = 'extracredit_create.html'
+    template_name = 'extracredit_create_materialize.html'
     fields = ['recipient', 'skill', 'description']
 
     def form_valid(self, form):

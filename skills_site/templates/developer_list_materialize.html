@@ -1,0 +1,62 @@
+{%  extends 'base_materialize.html' %}
+{% load staticfiles %}
+{% block content %}
+    <!--h2>Developers</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Developer Name</th>
+                <th>Title</th>
+                <th>Extra Credit Tokens</th>
+                <th>Manager</th>
+            </tr>
+        </thead>-->
+     <ul class="collection with-header container">
+     <li class="collection-header">
+         <h4 class="orange-text">People</h4>
+         </li>
+     <!--li-- class="collection-item">
+         <div class="input-field">
+          <input id="search" type="search" required>
+          <label for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+     </li-->
+     {% for object in object_list %}
+    <li class="collection-item avatar">
+      <img src="{% static 'images/user.jpg' %}" alt="" class="circle">
+      <span class="title" style="font-weight: bold;"><a href="/developer_detail/{{ object.id }}">{{object.user.first_name}} {{ object.user.last_name }}</a></span>
+      <p>{{object.title}} <br>
+         {{object.manager }}<br>
+         Extra Credit Tokens: {{object.extra_credit_tokens}}
+      </p>
+      <a href="#!" class="secondary-content">
+          <!--i class="material-icons">grade</i--></a>
+    </li>
+         {% endfor %}
+    <!--li class="collection-item avatar">
+      <i class="material-icons circle">folder</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle green">insert_chart</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle red">play_arrow</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li-->
+  </ul>
+{% endblock %}
